@@ -1,5 +1,4 @@
 "use client"
-import { env } from 'process';
 import React, { useState } from 'react';
 
 function SendDataComponent() {
@@ -8,10 +7,9 @@ function SendDataComponent() {
   // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setDataToSend(event.target.value);
   // };
-
   const sendData = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    console.log(e.currentTarget.value);
-    const response = await fetch(`${process.env.SERVER_URL}/send-data?data=${e.currentTarget.value}`, {
+    
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/send-data?data=${e.currentTarget.value}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
